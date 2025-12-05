@@ -217,15 +217,15 @@ fprintf('--> 正在处理和绘制: 未归一化的原始幅度...\n');
 % 作用: 显示从RINEX文件中直接解析出的原始载噪比(C/N0)值。
 % 如何禁用: 在下面 "figure" 到 "datetick" 的所有行前加上 '%' 符号。
 % -------------------------------------------------------------------------
-% fprintf('--> 正在处理和绘制: 原始SNR观测值...\n');
-% figure('Name', sprintf('卫星 %s - 原始SNR', target_satellite_id), 'NumberTitle', 'off');
-% plot(time_vector_cst, raw_snr_vector, '.-');
-% ylim([30 50]);
-% title(sprintf('卫星 %s - 原始SNR观测值 (C/N0)', target_satellite_id));
-% xlabel('时间 (北京时间)');
-% ylabel('SNR (dB-Hz)');
-% grid on;
-% datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
+fprintf('--> 正在处理和绘制: 原始SNR观测值...\n');
+figure('Name', sprintf('卫星 %s - 原始SNR', target_satellite_id), 'NumberTitle', 'off');
+plot(time_vector_cst, raw_snr_vector, '.-');
+ylim([30 50]);
+title(sprintf('卫星 %s - 原始SNR观测值 (C/N0)', target_satellite_id));
+xlabel('时间 (北京时间)');
+ylabel('SNR (dB-Hz)');
+grid on;
+datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
 % ========================= 原始SNR绘图模块结束 =========================
 
 
@@ -234,25 +234,25 @@ fprintf('--> 正在处理和绘制: 未归一化的原始幅度...\n');
 % 作用: 对比显示原始SNR和经过SG滤波后的SNR，直观评估去噪效果。
 % 如何禁用: 在下面 "figure" 到 "datetick" 的所有行前加上 '%' 符号。
 % -------------------------------------------------------------------------
-fprintf('--> 正在处理和绘制: SNR 滤波前后对比图...\n');
-figure('Name', sprintf('卫星 %s - SNR 滤波对比', target_satellite_id), 'NumberTitle', 'off');
-
-% 子图 1: 原始 SNR (默认颜色)
-subplot(2, 1, 1);
-plot(time_vector_cst, raw_snr_vector); 
-title(sprintf('原始 SNR (C/N0) - 卫星 %s', target_satellite_id));
-ylabel('SNR (dB-Hz)');
-grid on;
-datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
-
-% 子图 2: 滤波后 SNR (默认颜色)
-subplot(2, 1, 2);
-plot(time_vector_cst, smooth_snr_vector);
-title(sprintf('滤波后 SNR (Savitzky-Golay) - 卫星 %s', target_satellite_id));
-xlabel('时间 (北京时间)');
-ylabel('SNR (dB-Hz)');
-grid on;
-datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
+% fprintf('--> 正在处理和绘制: SNR 滤波前后对比图...\n');
+% figure('Name', sprintf('卫星 %s - SNR 滤波对比', target_satellite_id), 'NumberTitle', 'off');
+% 
+% % 子图 1: 原始 SNR (默认颜色)
+% subplot(2, 1, 1);
+% plot(time_vector_cst, raw_snr_vector); 
+% title(sprintf('原始 SNR (C/N0) - 卫星 %s', target_satellite_id));
+% ylabel('SNR (dB-Hz)');
+% grid on;
+% datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
+% 
+% % 子图 2: 滤波后 SNR (默认颜色)
+% subplot(2, 1, 2);
+% plot(time_vector_cst, smooth_snr_vector);
+% title(sprintf('滤波后 SNR (Savitzky-Golay) - 卫星 %s', target_satellite_id));
+% xlabel('时间 (北京时间)');
+% ylabel('SNR (dB-Hz)');
+% grid on;
+% datetick('x', 'HH:MM:ss', 'keepticks', 'keeplimits');
 % ========================= SNR滤波对比绘图模块结束 =========================
 
 
